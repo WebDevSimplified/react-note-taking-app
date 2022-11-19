@@ -92,6 +92,12 @@ function App() {
     setTags(prevTags => {
       return prevTags.filter(tag => tag.id !== id)
     })
+
+    setNotes(prevNotes => {
+      return prevNotes.map(note => {
+        return {...note, tagIds: note.tagIds.filter(tagId => tagId !== id)}
+      })
+    })
   }
 
   return (
